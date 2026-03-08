@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+        <title>Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav class="navbar">
+            <a href="#" class="Main">Portfolio.</a>
+            <i class="bx bx-list" onclick="openmenu()"></i>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+             <i class="bx bx-x" onclick="closemenu()"></i>   
+         
+            </ul> 
+                
+        </nav>
+        <section class="homepage">
+            <div class="homeinfo">
+                <h1>
+                    Keerthana R Sharma
+                </h1>
+                <h2>Student of Sir MVIT</h2>
+                <p class="tagline">Aspiring Web Developer & Software Engineer</p>
+                <div class="button">
+                    <a  href="KEERTHANA.pdf" class="cv" target="_blank">Download Resume</a>
+                    <div class="social">
+                        <a href="https://github.com/Keerthana-R-Sharma" target="_blank"><i class='bx bxl-github'></i></a>
+                        <a href="https://www.linkedin.com/in/keerthana-r-sharma-636b3529b" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="image">
+                <div class="imagebox">
+                    <div class="item">
+                        <img src="image.jpeg" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+     <div id="about">
+            <div class="row">
+                <div class="column">
+                    <h1 class="subtitle">
+                        About me
+                    </h1>
+                    <p class="sub">
+                    I am a motivated student with a strong interest in learning and 
+                    personal growth. I enjoy exploring new ideas, building skills 
+                    through hands-on projects, and applying my knowledge to real-world challenges.
+                    I am eager to gain experience, improve continuously and contribute positively
+                    wherever I work.
+                    </p>
+                    <div class="title">
+                       <p class="tab-links active" onclick="opentab('skill', this)">Skills</p>
+                        <p class="tab-links" onclick="opentab('education', this)">Education</p>
+                    </div>
+                    <div class="content active-link" id="skill">
+                        <ul>
+                            <li><span>Web Development</span><br>Html Css Javascript</li>
+                            <li><span>Programming</span><br>C  C++  Java  DSA </li>
+                            <li><span>Tools</span><br>Flutter SDK Android Studio  Github </li>
+                            
+                        </ul>
+                    </div>
+                    <div class="content" id="education">
+                        <ul>
+                            <li><span>2021</span><br>Vikasa Vidya Samithi Shivamogga  10th </li>
+                            <li><span>2023</span><br> Vikasa Comp PU College Shivamogga  2nd PUC</li>
+                            <li><span>2027</span><br>Sir M Visesvaraya Institute of Technology Bangalore ISE </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div> 
+        <div id="portfolio">
+            <div class="container">
+                <h1 class="subtitle">
+                        My work
+                </h1>
+                <div class="work-list">
+                    <div class="work">
+                        <img src="work1.jpg">
+                        <div class="layer">
+                            <h3>Social Media App</h3>
+                            <p>
+                            Flutter-based debate application developed under the “Speak Up” theme that
+                            enables users to engage in structured, real-time debates on diverse topics. 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="work2.jpg" >
+                        <div class="layer">
+                            <h3>Line Following bot</h3>
+                            <p>
+                            An autonomous robot designed to detect and follow a predefined 
+                            path using sensors and a microcontroller.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="contact-left">
+                        <h1 class="subtitle">Contact Me</h1>
+                        <p class="text">contact@example.com</p>
+
+                        <p class="text">
+                            0123456789
+                        </p>
+                        
+                    </div>
+                        <div class="contact-right">
+                            <form id="contact-form">
+                                <input type="text" name="name" placeholder="your name" required>
+                                <input type="email" name="email" placeholder="Your email" required>
+                                <textarea name="message" rows="5" placeholder="Your message"></textarea>
+                                <button type="submit" class="btn">Submit</button>
+
+                            </form>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+        <script>
+            var tablinks = document.getElementsByClassName("tab-links");
+            var tabcontent=document.getElementsByClassName("content");
+           function opentab(tabname, element){
+    for (let tablink of tablinks) {
+        tablink.classList.remove("active");
+    }
+    for (let tabcontents of tabcontent) {
+        tabcontents.classList.remove("active-link");
+    }
+    element.classList.add("active");
+    document.getElementById(tabname).classList.add("active-link");
+}
+        </script>  
+        <script>
+const scriptURL = 'https://script.google.com/macros/s/AKfycbw-t6rULtu-cqmh3fmfzwi_RbG0XUEPYy6X-hzh4VNHHUvOExjM5cbw4d7ipN7_rMt0/exec'
+const form = document.forms['contact-form']
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+
+  fetch(scriptURL, {
+    method: 'POST',
+    body: new FormData(form)
+  })
+  .then(response => response.text())
+  .then(data => {
+    alert("Message sent successfully!");
+    form.reset();
+  })
+  .catch(error => {
+    console.error('Error!', error.message)
+  })
+})
+</script>
+<script>
+let menu = document.querySelector("navbar ul");
+
+function openmenu(){
+  menu.style.right = "0";
+}
+
+function closemenu(){
+  menu.style.right = "-200px";
+}
+</script>
+    </body>
+</html>
